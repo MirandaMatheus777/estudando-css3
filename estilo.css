@@ -1,0 +1,116 @@
+body {
+  margin: 0;
+  background: #000000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(252, 252, 252);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 70px);
+  grid-template-rows: repeat(4, 70px);
+  gap: 10px;
+  grid-template-areas:
+    "r1c1 r1c2 r1c3"
+    "r2c1 r2c2 ."
+    "r3c1 r3c2 r3c3"
+    "r4c1 r4c2 .";
+  width: max-content;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+/* blocos comuns */
+.block {
+  opacity: 0;
+  transform: translateY(-150px);
+  border-radius: 8px;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+  animation-name: fall;
+  animation-duration: 1s;
+  animation-delay: calc(var(--order) * 0.2s);
+}
+
+/* bloco vermelho (círculo) */
+.block.red {
+  background-color: #c11b1b;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  grid-area: r1c1;
+  animation-delay: 0s;
+  animation-name: fallRed;
+}
+
+/* blocos verdes */
+.block.green {
+  background-color: #2a9134;
+  width: 70px;
+  height: 70px;
+}
+
+/* atribuindo ordem para delay no CSS inline */
+.container > div:nth-child(1) { --order: 0; }  /* círculo vermelho */
+.container > div:nth-child(2) { --order: 1; }
+.container > div:nth-child(3) { --order: 2; }
+.container > div:nth-child(4) { --order: 3; }
+.container > div:nth-child(5) { --order: 4; }
+.container > div:nth-child(6) { --order: 5; }
+.container > div:nth-child(7) { --order: 6; }
+.container > div:nth-child(8) { --order: 7; }
+.container > div:nth-child(9) { --order: 8; }
+.container > div:nth-child(10) { --order: 9; }
+
+/* animação de queda */
+@keyframes fall {
+  0% {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fallRed {
+  0% {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* texto embaixo com fade-in após blocos caírem */
+.text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  max-width: 320px;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInText 2s ease 2.2s forwards;
+}
+
+@keyframes fadeInText {
+  to {
+    opacity: 1;
+  }
+}
