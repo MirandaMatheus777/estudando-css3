@@ -40,6 +40,9 @@ body {
 }
 
 .block.red {
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
   background-color: #c11b1b;
   border-radius: 50%;
   width: 70px;
@@ -54,16 +57,37 @@ body {
   height: 70px;
 }
 
-.container > div:nth-child(1) { --order: 0; }
-.container > div:nth-child(2) { --order: 1; }
-.container > div:nth-child(3) { --order: 2; }
-.container > div:nth-child(4) { --order: 3; }
-.container > div:nth-child(5) { --order: 4; }
-.container > div:nth-child(6) { --order: 5; }
-.container > div:nth-child(7) { --order: 6; }
-.container > div:nth-child(8) { --order: 7; }
-.container > div:nth-child(9) { --order: 8; }
-.container > div:nth-child(10) { --order: 9; }
+.container > div:nth-child(1),
+.container > a:nth-child(1) {
+  --order: 0;
+}
+.container > div:nth-child(2) {
+  --order: 1;
+}
+.container > div:nth-child(3) {
+  --order: 2;
+}
+.container > div:nth-child(4) {
+  --order: 3;
+}
+.container > div:nth-child(5) {
+  --order: 4;
+}
+.container > div:nth-child(6) {
+  --order: 5;
+}
+.container > div:nth-child(7) {
+  --order: 6;
+}
+.container > div:nth-child(8) {
+  --order: 7;
+}
+.container > div:nth-child(9) {
+  --order: 8;
+}
+.container > div:nth-child(10) {
+  --order: 9;
+}
 
 @keyframes fall {
   0% {
